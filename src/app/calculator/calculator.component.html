@@ -1,0 +1,92 @@
+<div class="layout-column align-items-center">
+    <!-- Display Total Operations -->
+    <h4 data-test-id="total-operations" class="pt-50">
+      Total operations performed: {{count}}
+    </h4>
+  
+    <!-- Card Section -->
+    <div class="card">
+      <section class="card-text">
+        <!-- Input Fields and Operator Symbol -->
+        <div class="layout-row justify-content-around align-items-center mt-40">
+          <input 
+            type="number" 
+            [(ngModel)]="inp1" 
+            class="ml-3 mr-3" 
+            data-test-id="app-input1"
+            autocomplete="off" 
+            placeholder="Eg: 1" 
+            name="input1"
+          />
+          <label 
+            class="ml-2 mr-2 symbol text-center" 
+            data-test-id="selected-operator"
+          >
+            {{symbol}}
+          </label>
+          <input 
+            type="number" 
+            [(ngModel)]="inp2" 
+            data-test-id="app-input2"
+            autocomplete="off" 
+            class="ml-3 mr-3" 
+            placeholder="Eg: 2"
+          />
+        </div>
+  
+        <!-- Operation Buttons -->
+        <div class="layout-row justify-content-around mt-30">
+          <button 
+            (click)="add()" 
+            type="button" 
+            data-test-id="add-button"
+          >
+            <span class="operationFont">+</span>
+          </button>
+          <button 
+            (click)="subtract()" 
+            type="button" 
+            data-test-id="minus-button"
+          >
+            <span class="operationFont">-</span>
+          </button>
+          <button 
+            (click)="multiply()" 
+            type="button" 
+            data-test-id="multiply-button"
+          >
+            <span class="operationFont">*</span>
+          </button>
+          <button 
+            (click)="divide()" 
+            type="button" 
+            data-test-id="divide-button"
+          >
+            <span class="operationFont">/</span>
+          </button>
+        </div>
+  
+        <!-- Reset Button and Result -->
+        <div class="layout-row justify-content-between align-items-center mt-30">
+          <button 
+            (click)="reset()" 
+            type="reset" 
+            class="outline danger" 
+            data-test-id="reset-button"
+          >
+            Reset
+          </button>
+          <div class="layout-row justify-content-between align-items-center result-container">
+            <h5 
+              *ngIf="result" 
+              data-test-id="result" 
+              class="reset-value ma-0 slide-up-fade-in"
+            >
+              Result: {{result}}
+            </h5>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  
